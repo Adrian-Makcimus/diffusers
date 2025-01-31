@@ -1113,7 +1113,7 @@ class AttnProcessor:
             batch_size, channel, height, width = hidden_states.shape
             hidden_states = hidden_states.view(batch_size, channel, height * width).transpose(1, 2)
 
-        batch_size, sequence_length, _ = (
+        batch_size, sequence_length  = (
             hidden_states.shape if encoder_hidden_states is None else encoder_hidden_states.shape
         )
         attention_mask = attn.prepare_attention_mask(attention_mask, sequence_length, batch_size)
